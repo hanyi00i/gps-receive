@@ -39,7 +39,7 @@
           onSuccess: onConnect,
           onFailure: onFailure,
         };
-        mqtt.onConnectionLost = onConnectionLost;
+        //mqtt.onConnectionLost = onConnectionLost;
         mqtt.onMessageArrived = onMessageArrived;
         mqtt.connect(options);
       }
