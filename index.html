@@ -46,9 +46,9 @@
       function onConnect() {
         console.log("onConnect");
         mqtt.subscribe("gps-idp");
-        message = new Paho.MQTT.Message("EH MALU TAU");
-        message.destinationName = "gps-idp";
-        mqtt.send(message);
+        //message = new Paho.MQTT.Message("EH MALU TAU");
+        //message.destinationName = "gps-idp";
+        //mqtt.send(message);
         // above
         document.getElementById("messages").innerHTML = "Connected to " + host;
         connected_flag = 1;
@@ -58,11 +58,11 @@
       }
       function onConnectionLost(responseObject) {
         console.log("connection lost");
-        document.getElementById("status").innerHTML =
-          "Connection Lost: " +
-          responseObject.errorMessage +
-          ". Reconnecting...";
-        document.getElementById("messages").innerHTML = "";
+        // document.getElementById("status").innerHTML =
+        //   "Connection Lost: " +
+        //   responseObject.errorMessage +
+        //   ". Reconnecting...";
+        // document.getElementById("messages").innerHTML = "";
         connected_flag = 0;
       }
       function onMessageArrived(message) {
