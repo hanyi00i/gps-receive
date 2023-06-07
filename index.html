@@ -32,7 +32,10 @@
       function MQTTconnect() {
         //document.getElementById("messages").innerHTML = "";
         console.log("Connecting to " + host + " " + port);
-        mqtt = new Paho.MQTT.Client(host, port, "clientjs");
+        mqtt = new Paho.MQTT.Client(
+          "wss://test.mosquitto.org:8081/mqtt",
+          "clientjs"
+        );
         var options = {
           timeout: 3,
           onSuccess: onConnect,
