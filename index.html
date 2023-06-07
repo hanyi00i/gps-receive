@@ -32,11 +32,9 @@
       function MQTTconnect() {
         //document.getElementById("messages").innerHTML = "";
         console.log("Connecting to " + host + " " + port);
-        mqtt = new Paho.MQTT.Client(
-          "wss://test.mosquitto.org:8081/mqtt",
-          "clientjs"
-        );
+        mqtt = new Paho.MQTT.Client(host, port, "clientjs");
         var options = {
+          useSSL: true,
           timeout: 3,
           onSuccess: onConnect,
           onFailure: onFailure,
@@ -48,9 +46,9 @@
       function onConnect() {
         console.log("onConnect");
         mqtt.subscribe("gps-idp");
-        //message = new Paho.MQTT.Message("EH MALU TAU");
-        //message.destinationName = "gps-idp";
-        //mqtt.send(message);
+        message = new Paho.MQTT.Message("EH MALU TAU");
+        message.destinationName = "gps-idp";
+        mqtt.send(message);
         // above
         document.getElementById("messages").innerHTML = "Connected to " + host;
         connected_flag = 1;
