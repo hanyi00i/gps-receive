@@ -27,11 +27,11 @@
       var mqtt;
       var reconnectTimeout = 2000;
       var host = "test.mosquitto.org";
-      var port = 8080;
+      var port = 8081;
 
       function MQTTconnect() {
         //document.getElementById("messages").innerHTML = "";
-        console.log("1. Connecting to " + host + " " + port);
+        console.log("Connecting to " + host + " " + port);
         mqtt = new Paho.MQTT.Client(host, port, "clientjs");
         var options = {
           timeout: 3,
